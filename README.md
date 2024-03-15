@@ -1,2 +1,2 @@
 # UnicodeToTex
-Lightweight library taht converst unicode caracters to the corresponding latex strings
+Lightweight library that converts Unicode characters to the corresponding latex strings
