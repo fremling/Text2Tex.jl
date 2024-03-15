@@ -1,7 +1,7 @@
 # Text2Tex.jl
 Lightweight library that converts simple html markdown and unicode characters to the corresponding latex strings.
 
-This pachage can for buest to convert e.g. names or html formated chemical formulas to a tex friendly format.
+This pachage can ne used to convert e.g. names or html formated chemical formulas to a tex-friendly format.
 
 ```julia
 using Text2Tex
