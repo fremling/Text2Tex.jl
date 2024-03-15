@@ -1,4 +1,4 @@
-name = "Text2Tex"
+name = "Text2Tex.jl"
 uuid = "14f4b459-b795-4db2-be2a-be7a7c74c78d"
 authors = ["Mikael Fremling <micke.fremling@gmail.com>"]
 version = "0.1.0"
