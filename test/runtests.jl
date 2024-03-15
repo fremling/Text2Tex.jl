@@ -14,8 +14,11 @@ using Text2Tex
 @test text2tex("&’") == "{\\&}\'"
 
 
-@test text2tex("åäö") == "{\\aa}{{\\\"}a}{{\\\"}o}"
+@test text2tex("åäö") == "{\\aa}{\\\"a}{\\\"o}"
 
 @test text2tex("Straße") == "Stra{\\ss}e"
 
-@test text2tex("ş") == "{{\\c}s}"
+@test text2tex("ş") == "{\\c s}"
+
+@test text2tex("şç") == "{\\c s}{\\c c}"
+@test text2tex("ıłğČ") == "{\\i}{\\l}{\\v g}{\\v C}"

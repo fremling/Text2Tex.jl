@@ -15,8 +15,12 @@ function text2tex(stringIn::AbstractString;verbose=false)
 end
 
 function BO(accentcode,letter::Char)
-    return "{{"*'\\'*accentcode*"}"*letter*"}"
+    return "{"*'\\'*accentcode*letter*"}"
 end
+function BOE(accentcode,letter::Char) ##Encapsulate
+    return "{"*'\\'*accentcode*" "*letter*"}"
+end
+
 
 text2tex(::Missing) = ""
 function text2tex(c::Char)
@@ -38,17 +42,17 @@ function text2tex(c::Char)
     
     isspace(c) && return c # space
     ###Special characters
-    c == 'ı' && return 'i'  ###FIXME
-    c == 'ł' && return 'l'  ###FIXME
+    c == 'ı' && return "{\\i}"
+    c == 'ł' && return "{\\l}"
     c == 'ß' && return "{\\ss}"
     ## cedilla
-    c == 'ş' && return BO('c','s')
-    c == 'ç' && return BO('c','c')
+    c == 'ş' && return BOE('c','s')
+    c == 'ç' && return BOE('c','c')
     ## check
-    c == 'ğ' && return "g" ###FIXME '\\'*'v'*'g'
-    c == 'Š' && return "S" ###FIXME '\\'*'v'*'S'
-    c == 'š' && return "s" ###FIXME '\\'*'v'*'s'
-    c == 'Č' && return "C" ###FIXME '\\'*'v'*'s'
+    c == 'ğ' && return BOE('v','g')
+    c == 'Š' && return BOE('v','S')
+    c == 'š' && return BOE('v','s')
+    c == 'Č' && return BOE('v','C')
     ## umlaut
     c == 'ö' && return BO('"','o')
     c == 'ë' && return BO('"','e')
