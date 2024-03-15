@@ -1,5 +1,4 @@
-
-using Test
+module Text2Tex
 
 function Text2Tex(stringIn::AbstractString)
     println("Decoding:'$stringIn'")    
