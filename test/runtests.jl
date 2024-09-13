@@ -12,6 +12,7 @@ using Text2Tex
 @test  text2tex("G<sup>10</sup>A") == "G\\textsuperscript{10}A"
 
 @test text2tex("&’") == "{\\&}\'"
+@test text2tex("a+b") == "a+b"
 
 
 @test text2tex("åäö") == "{\\aa}{\\\"a}{\\\"o}"

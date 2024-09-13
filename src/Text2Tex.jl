@@ -27,7 +27,7 @@ function text2tex(c::Char)
     in(c,'A':'Z') && return c ### Upper case
     in(c,'a':'z') && return c ### lower case
     in(c,'0':'9') && return c ### lower case
-    in(c,".;,():_@/<>{}") && return c
+    in(c,"+.;,():_@/<>{}") && return c
     c == '\$' && return c
 
     c == 'å' && return "{\\aa}"  ###
