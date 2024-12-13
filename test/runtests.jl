@@ -13,9 +13,13 @@ using Text2Tex
 
 @test text2tex("&’") == "{\\&}\'"
 @test text2tex("a+b") == "a+b"
+@test text2tex("π") == "{\\textpi}"
+@test text2tex("Γ") == "{\\textGamma}"
 
 
 @test text2tex("åäö") == "{\\aa}{\\\"a}{\\\"o}"
+
+@test text2tex("me and you?") == "me and you?"
 
 @test text2tex("Straße") == "Stra{\\ss}e"
 

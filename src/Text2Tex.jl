@@ -27,7 +27,7 @@ function text2tex(c::Char)
     in(c,'A':'Z') && return c ### Upper case
     in(c,'a':'z') && return c ### lower case
     in(c,'0':'9') && return c ### lower case
-    in(c,"+.;,():_@/<>{}") && return c
+    in(c,"?+.;,():_@/<>{}") && return c
     c == '\$' && return c
 
     c == 'å' && return "{\\aa}"  ###
@@ -45,6 +45,8 @@ function text2tex(c::Char)
     c == 'ı' && return "{\\i}"
     c == 'ł' && return "{\\l}"
     c == 'ß' && return "{\\ss}"
+    c == 'π' && return "{\\textpi}"
+    c == 'Γ' && return "{\\textGamma}"
     ## cedilla
     c == 'ş' && return BOE('c','s')
     c == 'ç' && return BOE('c','c')
