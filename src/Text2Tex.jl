@@ -55,6 +55,7 @@ function text2tex(c::Char)
     c == 'Š' && return BOE('v','S')
     c == 'š' && return BOE('v','s')
     c == 'Č' && return BOE('v','C')
+    c == 'č' && return BOE('v','c')  
     ## umlaut
     c == 'ö' && return BO('"','o')
     c == 'ë' && return BO('"','e')
