@@ -3,6 +3,12 @@ using Test
 
 using Text2Tex
 
+@test text2tex(2) == "2"
+@test text2tex(234) == "234"
+@test text2tex(2.34) == "2.34"
+@test text2tex(0) == "0"
+@test text2tex(0.0) == "0.0"
+
 @test text2tex("A<sub>B</sub>") == "A\\textsubscript{B}"
 @test text2tex("A<br>B") == "A\\\\B"
 

@@ -23,6 +23,9 @@ end
 
 
 text2tex(::Missing) = ""
+text2tex(n::Integer) = "$n"
+text2tex(n::Real) = "$n"
+
 function text2tex(c::Char)
     in(c,'A':'Z') && return c ### Upper case
     in(c,'a':'z') && return c ### lower case
