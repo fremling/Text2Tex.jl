@@ -64,6 +64,7 @@ function text2tex(c::Char)
     c == 'ë' && return BO('"','e')
     c == 'ü' && return BO('"','u')
     c == 'ä' && return BO('"','a')
+    c == 'ï' && return BO('"','i')
     ## grave accent
     c == 'è' && return BO("\`",'e')
     c == 'à' && return BO("\`",'a')
