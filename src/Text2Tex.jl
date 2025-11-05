@@ -56,8 +56,10 @@ function text2tex(c::Char)
 
     c == 'å' && return "{\\aa}"  ###
     c == '&' && return "{\\&}"  ###
-    c == '-' && return '-' ###Long dash
+    c == '‑' && return '-'  ###short dash
+    c == '-' && return '-' ###medium dash
     c == '–' && return '-' ###Long dash
+
     c == '’' && return '\'' ###Fancy end-quite
 
     c == '€' && return "{\\euro}"
@@ -105,6 +107,8 @@ function text2tex(c::Char)
     c == '√' && return "\$\\checkmark\$"
     c == '×' && return "\$\\times\$"
     c == '∘' && return "\$\\degree\$"
+    c == '³' && return "\\textsubscript{3}"
+
     
     error("Unknown char: '$c'")
 end
