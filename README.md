@@ -18,7 +18,7 @@ julia> text2tex("I can handle special characters like å, ä, ö")
 ```
 
 The convertible characters list is incomplete but will be extended over time (or upon request).
-Here is a short list of supported characters:
+Here is a short list of some supported characters:
 
 ı ł ß ş ç ğ Š š Č ö ë ü ä è à á ń ó í ź é ú ć
 
