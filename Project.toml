@@ -1,11 +1,12 @@
 name = "Text2Tex"
 uuid = "14f4b459-b795-4db2-be2a-be7a7c74c78d"
+version = "0.1.9"
 authors = ["Mikael Fremling <micke.fremling@gmail.com>"]
-version = "0.1.8"
 
 [deps]
+Glob = "c27321d9-0574-5035-807b-f59d2c89b15c"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
-
 [compat]
+Glob = "1.3.1"
 julia = "1"

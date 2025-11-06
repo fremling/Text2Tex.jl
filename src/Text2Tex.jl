@@ -103,10 +103,9 @@ function text2tex(c::Char)
     ## tilde
     c == 'ñ' && return '\\'*'~'*'n'  ###FIXME
     c == 'ã' && return '\\'*'~'*'a'  ###FIXME
-
-    c == '√' && return "\$\\checkmark\$"
-    c == '×' && return "\$\\times\$"
-    c == '∘' && return "\$\\degree\$"
+    c == '√' && return "{\\textsurd}" ##Square root
+    c == '×' && return "{\\texttimes}"
+    c == '∘' && return "{\\textdegree}"
     c == '³' && return "\\textsubscript{3}"
 
     
