@@ -166,14 +166,25 @@ merge!(SPECIAL, Dict('⁺' => "\\textsuperscript{+}", '⁻' => "\\textsuperscrip
 const PASSTHROUGH = Set("?!+-*=.;:,()[]_@/<>{}\$'\"`")
 
 
+### Convert a single character to LaTeX. The checks are tried in order; the first match wins.
 function text2tex(c::Char)
+    ### Plain a-z and A-Z need no conversion
     (isascii(c) && isletter(c)) && return c
+    ### Digits 0-9 likewise
     isdigit(c) && return c
+    ### ASCII punctuation that is safe in LaTeX (or deliberately left for the user, like $ and {})
     c in PASSTHROUGH && return c
+    ### Explicit lookup table: letters without a decomposition (ø, æ, ß, ...), Greek, quotes,
+    ### dashes, symbols, sub/superscripts and escaped LaTeX specials (& % # ...).
+    ### Checked before the accent logic so that e.g. å gives {\aa} rather than {\r a}.
     haskey(SPECIAL, c) && return SPECIAL[c]
+    ### Ordinary whitespace is kept (special spaces like no-break space are already in SPECIAL)
     isspace(c) && return c
+    ### Accented letters: split into base letter + accent mark and build e.g. {\'e} or {\v s}.
+    ### Returns nothing if the character is not a letter with a single supported accent.
     s = accented2tex(c)
     s === nothing || return s
+    ### Nothing matched: report it (text2tex(::AbstractString) catches this and adds context)
     error("Unknown char: '$c'")
 end
 
