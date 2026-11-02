@@ -30,6 +30,9 @@ using Text2Tex
 @test text2tex("Straße") == "Stra{\\ss}e"
 
 @test text2tex("ş") == "{\\c s}"
+@test text2tex("ě") == "{\\v e}"
+@test text2tex("Zdeněk") == "Zden{\\v e}k"
+
 
 @test text2tex("şç") == "{\\c s}{\\c c}"
 @test text2tex("ıłğČ") == "{\\i}{\\l}{\\u g}{\\v C}"
