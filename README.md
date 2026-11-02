@@ -17,8 +17,25 @@ julia> text2tex("I can handle special characters like å, ä, ö")
 
 ```
 
-The convertible characters list is incomplete but will be extended over time (or upon request).
-Here is a short list of some supported characters:
+## Supported characters
 
-ı ł ß ş ç ğ Š š Č ö ë ü ä è à á ń ó í ź é ú ć
+* **Accented Latin letters**: any letter whose Unicode decomposition is a base letter plus
+  grave, acute, circumflex, tilde, macron, breve, dot above/below, diaeresis, ring, double acute,
+  caron, cedilla, comma below, ogonek or macron below.
+  This covers essentially all European languages: é ñ ö å ç š ő ą ż ř ů ğ ș ț ā ė ł …
+* **Special letters**: ß æ ø œ ł ı ð þ ŋ đ ĳ and Serbo-Croatian digraphs (ǆ ǉ ǌ)
+* **Greek letters** (via `textgreek`): α … ω, Α … Ω
+* **Punctuation**: – — ‘ ’ “ ” „ « » ‹ › … • † ‡ § ¶ ¡ ¿, special spaces
+* **Symbols**: € £ ¥ ¢ © ® ™ ° ± × ÷ µ ‰ № √ ½ ¼ ¾ → ≤ ≥ ≈ ∞ …
+* **Super/subscripts**: ⁰¹²³…⁹ ₀₁₂…₉ ⁺ ⁻
+* LaTeX special characters `& % # ~ ^ \ |` are escaped.
 
+The output assumes the following in the preamble:
+
+```latex
+\usepackage[T1]{fontenc}
+\usepackage{textcomp,textgreek,eurosym}
+```
+
+Not supported: letters with several stacked accents (ế, ǘ, ậ), Vietnamese hook/horn (ả, ơ, ư),
+IPA letters, and some rare phonetic accents. Unknown characters raise an error showing their context.
